@@ -1,3 +1,5 @@
+package pack1;
+
 public interface QueueInterface<E>
 {
 	boolean add(E o);
