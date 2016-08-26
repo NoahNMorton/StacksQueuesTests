@@ -12,25 +12,33 @@ public class Mainfile {
 
         System.out.println("Please select a choice:");
         byte choice = Menu();
+        Scanner scan = new Scanner(System.in);
+        Queue<Integer> mqueue = new Queue();
 
         switch(choice){
-            case 1:
+            case 1: //print all data in queue
+                for (int i = 0; i<mqueue.size();i++) {
+                    System.out.println(mqueue.get(i));
+                }
+                break;
+            case 2: //offer/add item to back of queue
+                System.out.println("Please enter an integer.");
+                Integer input = scan.nextInt();
+                mqueue.offer(input);
+                break;
+            case 3: //peek - prints first item in queue
+                break;
+            case 4: //poll - remove front item and print
+                break;
+            case 5: //size print size of queue
 
                 break;
-            case 2:
+            case 6: //get print item in spot provided
                 break;
-            case 3:
+            case 7: //prints if queue empty
                 break;
-            case 4:
-                break;
-            case 5:
-
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
+            case 8: //exit game
+                System.exit(0);
                 break;
         }
 
