@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * Date created: 8/26/2016
  * Part of project: QueueTester
  **/
-@SuppressWarnings("CanBeFinal")
+@SuppressWarnings("CanBeFinal,WeakerAccess")
+
 public class Queue<E> implements QueueInterface<E> {
 
     private ArrayList<E> queue;
@@ -27,11 +28,9 @@ public class Queue<E> implements QueueInterface<E> {
         return true;
     }
 
-
     public E peek() {
         return queue.get(0);
     }
-
 
     public E element() {
         return null;

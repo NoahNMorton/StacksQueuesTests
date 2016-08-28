@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Date created: 8/25/2016
  * Part of project: QueueTester
  **/
-@SuppressWarnings("ALL")
+@SuppressWarnings("WeakerAccess")
 public class Mainfile {
     public static void main(String[] args) {
         do {
@@ -24,7 +24,7 @@ public class Mainfile {
                     }
                     System.out.println("done printing");
                     break;
-                case 2: //offer/add item to back of queue
+                case 2: //offer/add item to back of queue //todo seems to be not adding
                     System.out.println("Please enter an integer.");
                     Integer input = scan.nextInt();
                     mqueue.offer(input);
@@ -44,8 +44,7 @@ public class Mainfile {
                     System.out.println("The value is: " + mqueue.get(scan.nextInt()));
                     break;
                 case 7: //prints if queue empty
-                    String isEmpty = null;
-                    isEmpty = (mqueue.size() == 0) ? "is" : "is not";
+                    String isEmpty = (mqueue.empty()) ? "is" : "is not";
                     System.out.println("The queue " + isEmpty + " empty.");
                     break;
                 case 8: //exit game
@@ -58,11 +57,12 @@ public class Mainfile {
 
             }
 
-        } while(true);
+        } while (true);
     }
 
     /**
      * Displays a menu of choices and returns the choice.
+     *
      * @return a byte, the choice of the user
      */
     private static byte Menu() {
