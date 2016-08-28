@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * Date created: 8/26/2016
  * Part of project: QueueTester
  **/
+@SuppressWarnings("CanBeFinal")
 public class Queue<E> implements QueueInterface<E> {
 
     private ArrayList<E> queue;

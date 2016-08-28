@@ -1,5 +1,6 @@
 package pack1;
 
+@SuppressWarnings("ALL")
 public interface QueueInterface<E>
 {
 	boolean add(E o);

@@ -7,41 +7,58 @@ import java.util.Scanner;
  * Date created: 8/25/2016
  * Part of project: QueueTester
  **/
+@SuppressWarnings("ALL")
 public class Mainfile {
     public static void main(String[] args) {
+        do {
+            System.out.println("Please select a choice:");
+            byte choice = Menu(); //display menu and get choice.
+            Scanner scan = new Scanner(System.in);
+            Queue<Integer> mqueue = new Queue<>();
 
-        System.out.println("Please select a choice:");
-        byte choice = Menu();
-        Scanner scan = new Scanner(System.in);
-        Queue<Integer> mqueue = new Queue();
+            switch (choice) {
+                case 1: //print all data in queue
+                    System.out.println("printing");
+                    for (int i = 0; i < mqueue.size(); i++) {
+                        System.out.println(mqueue.get(i));
+                    }
+                    System.out.println("done printing");
+                    break;
+                case 2: //offer/add item to back of queue
+                    System.out.println("Please enter an integer.");
+                    Integer input = scan.nextInt();
+                    mqueue.offer(input);
+                    System.out.println("The integer was added to the back of the queue.");
+                    break;
+                case 3: //peek - prints first item in queue
+                    System.out.println(mqueue.peek());
+                    break;
+                case 4: //poll - remove front item and print
+                    System.out.println(mqueue.poll());
+                    break;
+                case 5: //size print size of queue
+                    System.out.println("The queue size is " + mqueue.size());
+                    break;
+                case 6: //get print item in spot provided
+                    System.out.println("Get from what index?");
+                    System.out.println("The value is: " + mqueue.get(scan.nextInt()));
+                    break;
+                case 7: //prints if queue empty
+                    String isEmpty = null;
+                    isEmpty = (mqueue.size() == 0) ? "is" : "is not";
+                    System.out.println("The queue " + isEmpty + " empty.");
+                    break;
+                case 8: //exit game
+                    System.out.println("Exiting...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
 
-        switch(choice){
-            case 1: //print all data in queue
-                for (int i = 0; i<mqueue.size();i++) {
-                    System.out.println(mqueue.get(i));
-                }
-                break;
-            case 2: //offer/add item to back of queue
-                System.out.println("Please enter an integer.");
-                Integer input = scan.nextInt();
-                mqueue.offer(input);
-                break;
-            case 3: //peek - prints first item in queue
-                break;
-            case 4: //poll - remove front item and print
-                break;
-            case 5: //size print size of queue
+            }
 
-                break;
-            case 6: //get print item in spot provided
-                break;
-            case 7: //prints if queue empty
-                break;
-            case 8: //exit game
-                System.exit(0);
-                break;
-        }
-
+        } while(true);
     }
 
     /**
