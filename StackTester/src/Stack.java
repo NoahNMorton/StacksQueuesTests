@@ -17,7 +17,7 @@ public class Stack<E> implements StackInterface<E> {
 
     @Override
     public E push(E o) {
-        stack.add(o);
+        stack.add(0,o);
         return o;
     }
 

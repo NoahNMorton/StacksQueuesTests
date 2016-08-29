@@ -8,40 +8,58 @@ import java.util.Scanner;
 @SuppressWarnings("WeakerAccess")
 public class Mainfile {
     public static void main(String[] args) {
+        Stack<Integer> mstack = new Stack<>();
+
         do {
-            System.out.println("Please select a choice:");
+            System.out.println("------------------------\nPlease select a choice:");
             byte choice = Menu(); //display menu and get choice.
             Scanner scan = new Scanner(System.in);
-            Stack<Integer> mstack = new Stack<>();
 
             switch (choice) {
                 case 1: //print all data in stack
-                    System.out.println("printing");
-                    for (int i = 0; i < mstack.size(); i++) {
-                        System.out.println(mstack.get(i));
-                    }
-                    System.out.println("done printing");
+                    System.out.println("Printing...");
+                    if (mstack.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else
+                        for (int i = 0; i < mstack.size(); i++) {
+                            System.out.println(mstack.get(i));
+                        }
                     break;
                 case 2: //size
-                    System.out.println("The size of the stack is "+mstack.size());
+                    System.out.println("The size of the stack is " + mstack.size());
                     break;
                 case 3: //empty
                     String isEmpty = (mstack.empty()) ? "is" : "is not";
                     System.out.println("The stack " + isEmpty + " empty.");
                     break;
                 case 4: //get
-                    System.out.println("Get from what index?");
-                    System.out.println("The value is: " + mstack.get(scan.nextInt()));
+                    if (mstack.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else {
+                        System.out.println("Get from what index?");
+                        System.out.println("The value is: " + mstack.get(scan.nextInt()));
+                    }
                     break;
                 case 5: //add to top of stack
                     System.out.println("What should be added?");
                     mstack.push(scan.nextInt());
                     break;
                 case 6: //peek
-                    System.out.println("The top value is: "+mstack.peek());
+                    if (mstack.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else
+                        System.out.println("The top value is: " + mstack.peek());
                     break;
                 case 7: //pop
-                    System.out.println(mstack.pop());
+                    if (mstack.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else
+                        System.out.println(mstack.pop());
+                    break;
                 case 8: //exit game
                     System.out.println("Exiting...");
                     System.exit(0);
@@ -50,7 +68,6 @@ public class Mainfile {
                     System.out.println("Invalid choice.");
                     break;
             }
-
         } while (true);
     }
 
