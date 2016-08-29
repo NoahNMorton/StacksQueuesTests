@@ -13,37 +13,49 @@ public class Mainfile {
         Queue<Integer> mqueue = new Queue<>();
 
         do {
-            System.out.println("Please select a choice:");
+            System.out.println("---------------------------\nPlease select a choice:");
             byte choice = Menu(); //display menu and get choice.
             Scanner scan = new Scanner(System.in);
 
-
+            
             switch (choice) {
                 case 1: //print all data in queue
-                    System.out.println("printing");
+                    System.out.println("Printing...");
                     for (int i = 0; i < mqueue.size(); i++) {
                         System.out.println(mqueue.get(i));
                     }
-                    System.out.println("done printing");
                     break;
-                case 2: //offer/add item to back of queue //todo seems to be not adding
+                case 2: //offer/add item to back of queue
                     System.out.println("Please enter an integer.");
                     Integer input = scan.nextInt();
                     mqueue.offer(input);
                     System.out.println("The integer was added to the back of the queue.");
                     break;
                 case 3: //peek - prints first item in queue
-                    System.out.println(mqueue.peek());
+                    if (mqueue.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else
+                        System.out.println(mqueue.peek());
                     break;
                 case 4: //poll - remove front item and print
-                    System.out.println(mqueue.poll());
+                    if (mqueue.empty()) {
+                        System.out.println("Queue is empty.");
+                        break;
+                    } else
+                        System.out.println(mqueue.poll());
                     break;
                 case 5: //size print size of queue
                     System.out.println("The queue size is " + mqueue.size());
                     break;
                 case 6: //get print item in spot provided
                     System.out.println("Get from what index?");
-                    System.out.println("The value is: " + mqueue.get(scan.nextInt()));
+                    int index = scan.nextInt();
+                    if (index >= mqueue.size() || index <0) { //if value is out of bounds
+                        System.out.println("Value out of bounds.");
+                        break;
+                    } else
+                        System.out.println("The value is: " + mqueue.get(index));
                     break;
                 case 7: //prints if queue empty
                     String isEmpty = (mqueue.empty()) ? "is" : "is not";
