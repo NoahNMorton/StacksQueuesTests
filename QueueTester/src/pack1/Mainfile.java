@@ -10,11 +10,13 @@ import java.util.Scanner;
 @SuppressWarnings("WeakerAccess")
 public class Mainfile {
     public static void main(String[] args) {
+        Queue<Integer> mqueue = new Queue<>();
+
         do {
             System.out.println("Please select a choice:");
             byte choice = Menu(); //display menu and get choice.
             Scanner scan = new Scanner(System.in);
-            Queue<Integer> mqueue = new Queue<>();
+
 
             switch (choice) {
                 case 1: //print all data in queue
@@ -54,7 +56,6 @@ public class Mainfile {
                 default:
                     System.out.println("Invalid choice.");
                     break;
-
             }
 
         } while (true);
